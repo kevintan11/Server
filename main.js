@@ -350,6 +350,29 @@ function convertnumber(){
    }
 }
 
+function setDataToLocalStorage() {
+   const saveData = [];
+   for (var i = 1; i < table.rows.length - 1; i++) {
+     const data = {
+       VMName: table.rows[i].cells[0].innerHTML,
+       VCPU: table.rows[i].cells[1].innerHTML,
+       RAM: table.rows[i].cells[2].innerHTML,
+       SSD: table.rows[i].cells[3].innerHTML,
+       HDD: table.rows[i].cells[4].innerHTML,
+       DateStart: table.rows[i].cells[5].innerHTML,
+       DateEnd: table.rows[i].cells[6].innerHTML,
+       Duration: table.rows[i].cells[7].innerHTML,
+       Cost: table.rows[i].cells[8].innerHTML,
+       CostPerDay: table.rows[i].cells[9].innerHTML,
+       CostPerHour: table.rows[i].cells[10].innerHTML,
+       OS: table.rows[i].cells[11].innerHTML,
+       Loca: table.rows[i].cells[12].innerHTML,
+     };
+     saveData.push(data);
+   }
+   console.log(JSON.stringify(saveData));
+   window.localStorage.setItem("saveData", JSON.stringify(saveData));
+ }
 
 
 /*function autocomplete(searchEle, arr) {
